@@ -1,10 +1,9 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="selectedTab=$event.tab">
   <mat-tab label="Devices">
-    
+    <app-devices></app-devices>
   </mat-tab>
-  <mat-tab label="Settings">
-
-    
+  <mat-tab #settingsTab label="Settings">
+    <app-settings *ngIf="selectedTab == settingsTab"></app-settings>
   </mat-tab>
 </mat-tab-group>
 

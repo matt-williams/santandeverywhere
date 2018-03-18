@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><h3>Username: {{username}}</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Account number
+          </mat-panel-title>
+          <mat-panel-description>
+            Change your account number
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form role="form" (ngSubmit)="changeAccount()"><br>
+          <mat-form-field>
+            <input matInput placeholder="Account number" name="account" [(ngModel)]="newAccount">
+          </mat-form-field>
+          <br/>
+    
+          <button mat-raised-button [disabled]="loading" color="primary" type="submit">SAVE</button>
+        </form>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Password
+          </mat-panel-title>
+          <mat-panel-description>
+            Change your password
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form role="form" (ngSubmit)="changePassword()"><br>
+          <mat-form-field>
+            <input matInput placeholder="Password" name="password" [(ngModel)]="newPassword.password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <br/>
+    
+          <mat-form-field>
+            <input matInput placeholder="Confirm password" name="confirm_password" [(ngModel)]="newPassword.confirm_password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <br/>
+    
+          <button mat-raised-button [disabled]="loading" color="primary" type="submit">SAVE</button>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

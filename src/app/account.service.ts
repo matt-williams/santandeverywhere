@@ -12,6 +12,10 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   createAccount(account: Account) {
-    return this.http.post(`/phones/${account.username}`, account);
+    return this.http.post(`http://santandeverywhere.factern.com/phones/${account.username}`, account);
+  }
+
+  updateAccount(account: any) {
+    return this.http.post(`http://santandeverywhere.factern.com/phones/${account.username}`, account);
   }
 }

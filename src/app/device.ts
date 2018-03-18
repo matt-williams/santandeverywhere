@@ -1,5 +1,10 @@
 export class Device {
-  iotid: string;
+  _id: string;
   limit: number;
-  remainingLimit: number;
+  spent: number;
+  constructor(_id: string, limit: number) {
+    this._id = _id;
+    this.limit = limit;
+    this.spent = 0;
+  }
 }

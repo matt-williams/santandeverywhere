@@ -14,4 +14,9 @@ export class AuthService {
     //// true or false
     //return !this.jwtHelper.isTokenExpired(token);
   }
+
+  public getUsername(): string {
+    const username = localStorage.getItem('username');
+    return username;
+  }
 }

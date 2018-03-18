@@ -1,0 +1,13 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let device of devices">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{device._id}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Device
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    {{device.spent}} / {{device.limit}}
+  </mat-expansion-panel>
+</mat-accordion>

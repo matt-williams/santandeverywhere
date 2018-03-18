@@ -13,6 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { ROUTES } from './app.routes';
 
@@ -22,18 +25,22 @@ import { JwtInterceptor } from './jwt.interceptor';
 import { AppComponent } from './app.component';
 import { DevicesService } from './devices.service';
 import { AccountService } from './account.service';
-import { AlertService } from './alert.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { SettingsComponent } from './settings/settings.component';
+import { DevicesComponent } from './devices/devices.component';
+import { BankService } from './bank.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    SettingsComponent,
+    DevicesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,9 @@ import { MainComponent } from './main/main.component';
     MatInputModule,
     MatSlideToggleModule,
     MatButtonModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatExpansionModule,
     //RouterModule.forRoot(ROUTES, { enableTracing: true })
     RouterModule.forRoot(ROUTES),
     JwtModule.forRoot({
@@ -63,14 +73,14 @@ import { MainComponent } from './main/main.component';
   providers: [
     DevicesService,
     AccountService,
-    AlertService,
     AuthService,
     AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
+    BankService
   ],
   bootstrap: [AppComponent]
 })
